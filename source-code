@@ -1,0 +1,160 @@
+# Tugas Besar Pengantar Komputasi
+# Deskripsi: Membuat Program ATM Pada Bahasa Pemrograman Python
+
+print ()
+print ("="*41)
+print ("-", " "*6,"Welcome to XXX Bank ATM", " "*6, "-")
+print ("="*41)
+print ()
+
+restart = ("Y")
+chances = 3
+Saldo = 10000
+
+print ("="*41)
+while chances >=0 :
+    pin = int(input("Masukkan 6 Digit PIN Anda: "))
+    print ("="*41)
+    if pin == (654321) :
+        print ("PIN Yang Anda Masukkan Benar")
+        print ("="*41)
+        print ()
+        
+        while restart not in ("n", "NO", "no", "N", "tidak"):
+            print ("="*41)
+            print ("-", " "*15, "MENU", " "*15, "-")
+            print ("="*41)
+            print ("Tekan Angka 1 Untuk Menu Saldo")
+            print ("Tekan Angka 2 Untuk Menu Tarik Tunai")
+            print ("Tekan Angka 3 Untuk Menu Setor Tunai")
+            print ("Tekan Angka 4 Untuk Menu Transfer")
+            print ("Tekan Angka 5 Untuk Menu Cancel")
+            print ("="*41)
+            print ()
+            option = int(input("Apa Yang Ingin Anda Lakukan? "))
+            print ()
+            
+            if option == 1 :
+                print ("-"*30)
+                print ("Saldo Anda Sebesar", Saldo)
+                print ("-"*30)
+                print ()
+                restart = input("Apakah Anda Ingin Kembali Ke Menu Sebelumnya? ")
+                print ()
+                if restart in ("n", "NO", "no", "N"):
+                    print ("-"*81)
+                    print ("Terima Kasih")
+                    print ("Mohon Tunggu Sampai Kartu Anda Keluar, Pastikan Tidak Tertinggal di Dalam Mesin ATM")
+                    print ("-"*81)
+                    print ()
+                    break
+            elif option == 2 :
+                option2 = ("y")
+                print ("-"*58)
+                Tarik_tunai = float(input("Berapa Uang Yang Ingin Anda Tarik? "))
+                if Tarik_tunai in [100, 200, 400, 600, 800, 1000] :
+                    Saldo = Saldo - Tarik_tunai
+                    print ("Tarik Tunai Berhasil, Saldo Anda Saat Ini Adalah: ", Saldo)
+                    print ("-"*58)
+                    print ()
+                    restart = input("Apakah Anda Ingin Kembali Ke Menu Sebelumnya? ")
+                    print ()
+                    if restart in ("n", "NO", "no", "N") :
+                        print ("-"*83)
+                        print ("Terima Kasih")
+                        print ("Mohon Tunggu Sampai Kartu Anda Keluar, Pastikan Tidak Tertinggal di Dalam Mesin ATM")
+                        print ("-"*83)
+                        print ()
+                        break
+                elif Tarik_tunai != [100, 200, 400, 600, 800, 1000] :
+                    print ("-"*40)
+                    print ("Angka Yang Anda Masukkan Salah, Coba Ulangi kembali")
+                    print ("-"*40)
+                    print ()
+                    restart = ("y")
+                elif Tarik_tunai == 1 :
+                    print ("-"*40)
+                    Tarik_tunai = float(input("Silahkan Masukan Nominal Yang Anda Kehendaki: "))
+                    print ("-"*40)
+                    print ()
+            elif option == 3 :
+                print ("-"*58)
+                Setor_tunai = float(input("Silahkan Masukkan Nominal Yang Ingin Anda Setorkan: "))
+                Saldo = Saldo + Setor_tunai
+                print ()
+                print ("Setor Tunai Berhasil, Saldo Anda Saat Ini Adalah: ", Saldo)
+                print ("-"*58)
+                print ()
+                restart = input("Apakah Anda Ingin Kembali Ke Menu Sebelumnya? ")
+                print ()
+                if restart in ("n", "NO", "no", "N", "tidak") :
+                    print ("Terima Kasih")
+                    print ("Mohon Tunggu Sampai Kartu Anda Keluar, Pastikan Tidak Tertinggal di Dalam Mesin ATM")
+                    print ("-"*81)
+                    print ()
+                    break
+            elif option == 4 :
+                print ("-"*81)
+                Bank = float(input("Silahkan Input Bank Tujuan Anda: "))
+                Nomor_Rekening = float(input("Silahkan Input Nomor Rekening Tujuan Anda: "))
+                Transfer = float(input("Silahkan Input Nominal Yang Ingin Anda Kirim: "))
+                print ()
+                if Transfer in [50, 100, 200, 400, 600, 800, 1000] :
+                    print ("Transfer Berhasil")
+                    Saldo = Saldo - Transfer
+                    print ("Saldo Anda Saat Ini Adalah: ", Saldo)
+                    print ()
+                    print ("Terima Kasih")
+                    print ("Mohon Tunggu Sampai Kartu Anda Keluar, Pastikan Tidak Tertinggal di Dalam Mesin ATM")
+                    print ("-"*81)
+                    print ()
+                else :
+                    print ("-"*38)
+                    print ("Transfer Gagal, Coba Ulangi Kembali")
+                    print ("-"*38)
+                    print ()
+                    restart = input("Apakah Anda Ingin Mengulang Kembali Proses Transfer? ")
+                    print ()
+                    print ("-"*58)
+                    if restart in ("y", "YES", "yes", "Y", "iya") :
+                        print ("Silahkan Input Bank Tujuan Anda: ")
+                        print ("Silahkan Input Nomor Rekening Tujuan Anda: ")
+                        Transfer = float(input("Silahkan Input Nominal Yang Ingin Anda Kirim: "))
+                        print ()
+                        if Transfer in [50, 100, 200, 400, 600, 800, 1000] :
+                            print ("Transfer Berhasil")
+                            Saldo = Saldo - Transfer
+                            print ("Saldo Anda Saat Ini Adalah: ", Saldo)
+                            print ("Terima Kasih")
+                            print ("-"*58)
+                            print()
+                    elif restart in ("n", "NO", "no", "N", "tidak") :
+                        print ("-"*81)
+                        print ("Terima Kasih")
+                        print ("Mohon Tunggu Sampai Kartu Anda Keluar, Pastikan Tidak Tertinggal di Dalam Mesin ATM")
+                        print ("-"*81)
+                        print ()
+                        break
+            elif option == 5 :
+                print ("-"*81)
+                print ("Mohon Tunggu Sampai Kartu Anda Keluar, Pastikan Tidak Tertinggal di Dalam Mesin ATM")
+                print ("Terima Kasih")
+                print ("-"*81)
+                print ()
+                break
+
+
+    elif pin != (654321) :
+        print ()
+        print ("-"*41)
+        print ("PIN Yang Anda Masukkan Salah, Coba Lagi")
+        print ("-"*41)
+        print ()
+        print ("="*41)
+        chances = chances - 1
+        if chances == 0 :
+            print ("="*63)
+            print ("Kesempatan Untuk Mencoba Telah Habis, Silahkan Ambil Kartu Anda")
+            print ("="*63)
+            print()
+            break
